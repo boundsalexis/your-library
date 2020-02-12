@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/**
+ * BookSearch
+ */
 class BookSearch extends Component {
     constructor(props) {
         super(props);
@@ -7,12 +10,12 @@ class BookSearch extends Component {
         this.state = { query: "" };
         this.props = props;
     
-        this.onUpdateQuery = this.onUpdateQuery.bind(this);
+        this.onChangeQuery = this.onChangeQuery.bind(this);
         this.onSubmitQuery = this.onSubmitQuery.bind(this);
     }
 
-    onUpdateQuery(event) {
-        this.setState({ ...this.props, query: event.target.value })
+    onChangeQuery(event) {
+        this.setState({ ...this.state, query: event.target.value })
     }
 
     onSubmitQuery(event) {
@@ -29,7 +32,7 @@ class BookSearch extends Component {
                     <h5>
                         <label htmlFor="query">Book</label>
                     </h5>
-                    <input type="text" className="form-control" id="query" placeholder="Enter Book" onChange={this.onUpdateQuery}/>
+                    <input type="text" className="form-control" id="query" placeholder="Enter Book" onChange={this.onChangeQuery} value={this.state.query}/>
                 </div>
             </form>
         );
