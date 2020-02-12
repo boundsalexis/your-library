@@ -3,6 +3,15 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+//adding mongoose
+const mongoose = require("mongoose");
+//connecting goose
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+//creating db variable
+var db = mongoose.connection;
+//=>move to model folder to follow db track
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,5 +29,9 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+    console.log("DB created and connected succesfully")
+  });
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
