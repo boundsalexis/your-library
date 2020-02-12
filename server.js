@@ -4,12 +4,14 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 
+
 //adding mongoose
 const mongoose = require("mongoose");
-//connecting goose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+//connecting goose, naming our database /library is our db name
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/library", { useNewUrlParser: true });
 //creating db variable
 var db = mongoose.connection;
+//=>seeders gets run manually with node index.js in the seeder directory
 //=>move to model folder to follow db track
 
 // Define middleware here
@@ -28,6 +30,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+//on connections
 app.listen(PORT, () => {
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function() {
