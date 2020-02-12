@@ -13,7 +13,7 @@ function App() {
     title: "Title",
     subtitle: "Sub-Title",
     author: "Author",
-    img: "img"
+    img: "img" 
   }]);
 
   return (
