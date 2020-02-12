@@ -1,18 +1,34 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, {  useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+
+import Saved from './pages/Saved';
+import Search from './pages/Search';
 
 function App() {
+  const [results, setResults] = useState([{
+    title: "Title",
+    subtitle: "Sub-Title",
+    author: "Author",
+    img: "img"
+  }]);
+
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Search results={results} />
+          </Route>
+          <Route path="/saved">
+            <Saved results={results} />
+          </Route>
+        </Switch>
       </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    </Router>
   );
 }
 
