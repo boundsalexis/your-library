@@ -21,7 +21,7 @@ class BookSearch extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmitQuery}>
+            <form className="container" onSubmit={this.onSubmitQuery}>
                 <div className="form-group">
                     <h2>
                         <label htmlFor="query">Book Search</label>
