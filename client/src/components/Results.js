@@ -10,8 +10,8 @@ class Results extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Results:</h2>
+            <div className="container">
+                <h3>{this.props.title}</h3>
                 <div>
                     {
                         this.props.results.map((result, index) => {

@@ -18,7 +18,7 @@ class Search extends Component {
             <Nav />
             <Jumbotron />
             <BookSearch />
-            <Results results={this.props.results} />
+            <Results title={"Search"} results={this.props.results} />
             </div>
         );
     }

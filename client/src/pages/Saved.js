@@ -17,8 +17,7 @@ class Saved extends Component {
             <div>
             <Nav />
             <Jumbotron />
-            <BookSearch />
-            <Results results={this.props.results} />
+            <Results title={"Saved"} results={this.props.results} />
             </div>
         );
     }
