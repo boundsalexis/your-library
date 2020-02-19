@@ -6,8 +6,6 @@ class Nav extends Component {
         super(props);
 
         this.props = props;
-        //let { className } = props;
-        //this.className = "nav" + className ? " ".concat(className) : "";
     }
 
     render() {
@@ -17,13 +15,12 @@ class Nav extends Component {
                     <div className="nav-brand">Google Books</div>
                 </li>
                 <li className="nav-item">
-                    <Link to="/"><a className="nav-link" href="#">Search</a></Link>
+                    <Link to="/" className="nav-link">Search</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/saved"><a className="nav-link" href="#">Saved</a></Link>
+                    <Link to="/saved" className="nav-link">Saved</Link>
                 </li>
             </ul>
-            //<div className={this.className}>{this.props.children}</div>
         );
     }
 }

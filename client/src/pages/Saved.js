@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Nav from '../components/Nav';
 import Jumbotron from '../components/Jumbotron';
-import BookSearch from '../components/BookSearch';
 import Results from '../components/Results';
 
 class Saved extends Component {
