@@ -27,10 +27,8 @@ function BookSearch() {
                 type: SET_SEARCH_RESULTS,
                 searchResults: books
             });
-            console.log("SAVING RESULTS");
             console.log(books);
         });
-      
     }
     return (
 
@@ -46,22 +44,6 @@ function BookSearch() {
 
     );
 
-
-    render() {
-        return (
-            <form className="container" onSubmit={this.onSubmitQuery}>
-                <div className="form-group">
-                    <h2>
-                        <label htmlFor="query">Book Search</label>
-                    </h2>
-                    <h5>
-                        <label htmlFor="query">Book</label>
-                    </h5>
-                    <input type="text" className="form-control" id="query" placeholder="Enter Book" onChange={this.onChangeQuery} value={this.state.query}/>
-                </div>
-            </form>
-        );
-    }
 }
 
 export default BookSearch;
