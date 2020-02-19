@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
-
-import Nav from '../components/Nav';
+import React from 'react';
 import Jumbotron from '../components/Jumbotron';
-import BookSearch from '../components/BookSearch';
 import Results from '../components/Results';
+import { useStoreContext } from "../utils/GlobalState";
 
-class Saved extends Component {
-    constructor(props) {
-        super(props);
 
-        this.props = props;
-    }
+function Saved() {
+    const [state, dispatch] = useStoreContext();
 
-    render() {
-        return (
-            <div>
-            <Nav />
+
+    return (
+        <div>
             <Jumbotron />
-            <Results title={"Saved"} results={this.props.results} />
-            </div>
-        );
-    }
+            <Results results={state.saved} />
+        </div>
+    );
+
 }
 
 export default Saved;

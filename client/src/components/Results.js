@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Result from './Result';
+import { useStoreContext } from "../utils/GlobalState";
 
-class Results extends Component {
-    constructor(props) {
-        super(props);
+function Results(props) {
+    const [state, dispatch] = useStoreContext();
 
-        this.props = props;
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <h3>{this.props.title}</h3>
-                <div>
-                    {
-                        this.props.results.map((result, index) => {
-                            return <Result key={index} result={result} />
-                        })
-                    }
-                </div>
+    return (
+        <div className="container">
+            <h3>{props.title}</h3>
+            <div>
+                {
+                    state.results.map((result, index) => {
+                        return <Result key={index} result={result} />
+                    })
+                }
             </div>
-        );
-    }
+        </div>
+    );
+
 }
 
 export default Results;

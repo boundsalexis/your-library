@@ -1,27 +1,22 @@
-import React, { Component } from 'react';
-
-import Nav from '../components/Nav';
+import React, { useEffect } from 'react';
 import Jumbotron from '../components/Jumbotron';
 import BookSearch from '../components/BookSearch';
 import Results from '../components/Results';
 
-class Search extends Component {
-    constructor(props) {
-        super(props);
+function Search() {
 
-        this.props = props;
-    }
+    useEffect(() => {
+        console.log("LOADED");
+    }, []);
 
-    render() {
-        return (
-            <div>
-            <Nav />
+    return (
+        <div>
             <Jumbotron />
             <BookSearch />
-            <Results title={"Search"} results={this.props.results} />
-            </div>
-        );
-    }
+            <Results />
+        </div>
+    );
+
 }
 
 export default Search;

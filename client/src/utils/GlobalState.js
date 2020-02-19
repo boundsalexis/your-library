@@ -83,6 +83,9 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
+        results: [],
+        currentBook: {},
+        saved: []
         // searchItems: [],
         // currentItem: {
         //     // _id: 0,
