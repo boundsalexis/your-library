@@ -1,13 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
-    // UPDATE_ITEMS,
-    // REMOVE_CART_ITEM,
-    // ADD_CART_ITEM,
-    // SET_CURRENT_ITEM,
-    // LOGIN,
-    // LOGOUT,
-    // CLEAR_CART,
-    // UPDATE_CATEGORIES
+    SET_SEARCH_RESULTS,
+    SET_SAVED_RESULTS
 } from "./actions";
 
 const StoreContext = createContext();
@@ -15,6 +9,16 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case SET_SEARCH_RESULTS:
+            return {
+                ...state,
+                results: action.searchResults,
+            };
+        case SET_SAVED_RESULTS:
+            return {
+                ...state,
+                saved: action.savedResults,
+            };
         // case UPDATE_ITEMS:
         //     return {
         //         ...state,
