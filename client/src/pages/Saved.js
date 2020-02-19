@@ -13,7 +13,6 @@ function Saved() {
 
     useEffect(() => {
         API.getAll().then(res => {
-            console.log("SAVED BOOKS");
             console.log(res.data);
             dispatch({
                 type: SET_SAVED_RESULTS,
