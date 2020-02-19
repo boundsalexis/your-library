@@ -3,6 +3,24 @@ import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 
 
+/**
+ * @param{Object}
+ *  {
+ *      _id:    Number,
+ *      title:  String,
+ *      author: String,
+ *      picture:   String,
+ *      description: String,
+ *      link: String
+ *  }
+ * @param{function} onDelete(_id)
+ */
+
+class Result extends Component {
+    constructor(props) {
+        super(props);
+
+
 function Result({ index, result, button }) {
     const [state, dispatch] = useStoreContext();
 
@@ -24,8 +42,6 @@ function Result({ index, result, button }) {
         // })
     }
 
-
-
     function save() {
         console.log("SAVING", result);
         API.save(result).then(res => {
@@ -42,6 +58,7 @@ function Result({ index, result, button }) {
                 <div className="d-flex">
                     <img className="img py-1" src={result.image} alt="" />
                     <p className="card-text py-1 px-2">{result.description}</p>
+
                 </div>
                 <button type="submit py-1" className="btn btn-primary" onClick={(e) => click(e)}>{button}</button>
 
