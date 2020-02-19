@@ -1,25 +1,35 @@
-import React, { Component } from 'react';
-
-import Nav from '../components/Nav';
+import React, { useEffect } from 'react';
 import Jumbotron from '../components/Jumbotron';
 import Results from '../components/Results';
+import { useStoreContext } from "../utils/GlobalState";
+import API from '../utils/API';
+import { SET_SAVED_RESULTS } from '../utils/actions';
 
-class Saved extends Component {
-    constructor(props) {
-        super(props);
 
-        this.props = props;
-    }
 
-    render() {
-        return (
-            <div>
-            <Nav />
+function Saved() {
+
+    const [state, dispatch] = useStoreContext();
+
+    useEffect(() => {
+        API.getAll().then(res => {
+            console.log("SAVED BOOKS");
+            console.log(res.data);
+            dispatch({
+                type: SET_SAVED_RESULTS,
+                savedResults: res.data
+            });
+        })
+    }, []);
+
+
+    return (
+        <div>
             <Jumbotron />
-            <Results title={"Saved"} results={this.props.results} />
-            </div>
-        );
-    }
+            <Results results={state.saved} button="Delete" />
+        </div>
+    );
+
 }
 
 export default Saved;

@@ -1,32 +1,22 @@
-import React, {  useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom';
-
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { StoreProvider } from './utils/GlobalState';
 import Saved from './pages/Saved';
 import Search from './pages/Search';
+import Nav from './components/Nav';
+
 
 function App() {
-  const [results, setResults] = useState([{
-    title: "Title",
-    subtitle: "Sub-Title",
-    author: "Author",
-    img: "img"
-  }]);
+
 
   return (
     <Router>
       <div>
-        <Switch>
-          <Route exact path="/">
-            <Search results={results} />
-          </Route>
-          <Route path="/saved">
-            <Saved results={results} />
-          </Route>
-        </Switch>
+        <StoreProvider>
+          <Nav />
+          <Route exact path="/" component={Search} />
+          <Route exact path="/saved" component={Saved} />
+        </StoreProvider>
       </div>
     </Router>
   );
