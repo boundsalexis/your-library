@@ -30,18 +30,6 @@ const StoreProvider = ({ value = [], ...props }) => {
         results: [],
         currentBook: {},
         saved: []
-        // searchItems: [],
-        // currentItem: {
-        //     // _id: 0,
-        //     // title: "",
-        //     // price: "",
-        //     // description: ""
-        // },
-        // categories: [],
-        // cart: [],
-        // cartCount: {},
-        // loggedin: false,
-        // userId: ""
     });
     return <Provider value={[state, dispatch]} {...props} />;
 };
